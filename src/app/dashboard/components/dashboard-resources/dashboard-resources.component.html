@@ -1,0 +1,11 @@
+<mat-nav-list [routerLink]='link.url' *ngFor='let link of resources' (click)='onClose()'>
+  <a mat-list-item>
+    <mat-icon matListIcon>
+      {{link.icon}}
+    </mat-icon>
+    <h3 matLine>{{link.title}}</h3>
+  </a>
+
+  <ng-content></ng-content>
+
+</mat-nav-list>
