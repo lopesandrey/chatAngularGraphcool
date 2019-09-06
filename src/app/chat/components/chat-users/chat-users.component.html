@@ -1,9 +1,36 @@
 <mat-nav-list>
 
-  <a mat-list-item routerLink='./' *ngFor='let user of users$ | async'>
-    <img matListAvatar src='assets/images/user-no-photo.png' [title]='user.name'>
-    <h3 matLine>{{ user.name }}</h3>
-    <p matLine>Member since {{ user.createdAt | date: 'dd/mm/yyy'}}</p>
-  </a>
+  <ng-container *ngIf='users$ | async as users; else loadingUsers'>
+    <ng-container *ngIf='users.length > 0 ; else noUsers'>
+        <a mat-list-item [routerLink]="['../', user.id]" *ngFor='let user of users'>
+          <img matListAvatar src='assets/images/user-no-photo.png' [title]='user.name'>
+          <h3 matLine>{{ user.name }}</h3>
+          <p matLine>Member since {{ user.createdAt | date: 'dd/mm/yyy'}}</p>
+        </a>
+    </ng-container>
+
+  </ng-container>
+
+
 
 </mat-nav-list>
+
+<ng-template #loadingUsers>
+
+    <mat-spinner
+    class="spinner"
+    diameter='50'
+    strokeWidth='3'>
+
+    </mat-spinner>
+
+</ng-template>
+
+<ng-template #noUsers>
+    <app-no-record
+    icon='group'
+    title="No registered users">
+
+  </app-no-record>
+</ng-template>
+

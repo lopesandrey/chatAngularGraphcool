@@ -20,8 +20,13 @@ import {
 
 
 } from '@angular/material';
+import { NoRecordComponent } from './components/no-record/no-record.component';
 
 @NgModule({
+  declarations: [NoRecordComponent],
+  imports: [
+    MatIconModule
+  ],
   exports: [
     CommonModule,
     MatButtonModule,
@@ -37,7 +42,8 @@ import {
     MatTabsModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    NoRecordComponent
 
   ]
 })

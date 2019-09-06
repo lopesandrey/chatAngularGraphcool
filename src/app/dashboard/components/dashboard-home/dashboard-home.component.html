@@ -1,6 +1,6 @@
 <mat-sidenav-container class='sidenav-container'>
 
-  <mat-sidenav #sidenav class="sidenav">
+  <mat-sidenav #varSidenav class="sidenav">
 
     <mat-toolbar color='primary' class="mat-elevation-z2">
       Menu
@@ -8,11 +8,11 @@
 
     <app-dashboard-resources
     [isMenu] = 'true'
-    (close)='sidenav.close()'>
+    (close)='varSidenav.close()'>
 
     <mat-divider></mat-divider>
 
-    <mat-list-item (click)='onLogout(sidenav)'>
+    <mat-list-item (click)='onLogout(varSidenav)'>
       <mat-icon matListIcon>exit_to_app</mat-icon>
       <h3>Logout</h3>
     </mat-list-item>
@@ -22,7 +22,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <app-dashboard-header [sidenav]='sidenav' ></app-dashboard-header>
+    <app-dashboard-header [sidenav]='varSidenav' ></app-dashboard-header>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 
